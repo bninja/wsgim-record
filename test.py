@@ -39,6 +39,14 @@ class RecordMiddleware(wsgim_record.RecordMiddleware):
                 return True
         return False
 
+    def record_input(self, environ):
+        return 5
+
+    def record_errors(self, environ):
+        return True
+
+    def record_response(self, environ, status, headers, exc_info=None):
+        return -5
 
     def recorded(self, environ, input, errors, status, headers, output):
         self.captures[environ.get('HTTP_X_WSGIM_RECORD_TRACE')] = {
@@ -89,9 +97,9 @@ def test_capture_w_data(recorder, server, trace):
     captured = recorder.captures.pop(trace)
     assert captured == {
         'status': '200 OK',
-        'input': '{"nothing": "special"}',
+        'input': '{"not',
         'errors': 'none to report',
-        'output': '{"ya": "ah"}',
+        'output': '"ah"}',
         'headers': [
             ('Content-Type', 'application/json'), ('Content-Length', '12')
     ]}
@@ -108,7 +116,7 @@ def test_capture_wo_data(recorder, server, trace):
         'status': '200 OK',
         'input': '',
         'errors': 'none to report',
-        'output': '{"ya": "ah"}',
+        'output': '"ah"}',
         'headers': [
             ('Content-Type', 'application/json'), ('Content-Length', '12')
     ]}
