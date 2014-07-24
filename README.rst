@@ -8,7 +8,6 @@ wsgim-record
 .. image:: https://coveralls.io/repos/bninja/wsgim-record/badge.png
    :target: https://coveralls.io/r/bninja/wsgim-record
 
-
 WSGI middleware for conditionally recording request/response information.
 
 Install it:
