@@ -37,7 +37,7 @@ WSGI middleware for recording request/response information. Could use it like:
 
 """
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 __all__ = [
     'RecordMiddleware'

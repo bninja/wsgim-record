@@ -16,7 +16,7 @@ setuptools.setup(
     author_email='stan@hooper.com',
     description='WSGI middleware for recording requests/responses.',
     long_description=open('README.rst').read(),
-    py_modules=['wsgim_rip'],
+    py_modules=['wsgim_record'],
     include_package_data=True,
     platforms='any',
     install_requires=[],
