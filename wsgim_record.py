@@ -75,11 +75,6 @@ class RecordMiddleware(object):
 
         :param environ: WSGI environment for the request.
 
-        :param environ: WSGI environment for the request.
-        :param status: descriptive response status (e.g. "200 OK").
-        :param headers: response headers as a list of name, value pairs.
-        :param exc_info: optional exception information captured by wrapped WSGI.
-
         :returns:
             One of:
             - ``True`` to record everything
@@ -93,8 +88,6 @@ class RecordMiddleware(object):
     def record_errors(self, environ):
         """
         Whether to record bytes written to ``environ["wsgi.errors"]``.
-
-        :param environ: WSGI environment for the request.
 
         :param environ: WSGI environment for the request.
         :param status: descriptive response status (e.g. "200 OK").
@@ -118,7 +111,7 @@ class RecordMiddleware(object):
         :param environ: WSGI environment for the request.
         :param status: descriptive response status (e.g. "200 OK").
         :param headers: response headers as a list of name, value pairs.
-        :param exc_info: optional exception information captured by wrapped WSGI.
+        :param exc_info: exception information if captured by wrapped WSGI otherwise None.
 
         :returns:
             One of:
@@ -139,7 +132,7 @@ class RecordMiddleware(object):
         :param errors: bytes written from ``environ["wsgi.errors"]`` or None if declined.
         :param status: descriptive response status (e.g. "200 OK").
         :param headers: response headers as a list of name, value pairs.
-        :param errors: bytes yielded by ``next_app`` or written to ``start_response()`` or None if declined.
+        :param output: bytes yielded by ``next_app`` or written to ``start_response()`` or None if declined.
 
         """
         pass
